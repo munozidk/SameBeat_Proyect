@@ -25,6 +25,7 @@ export default function LikeButton({ initialLikes }: Props) {
             <Heart 
                 size={22}
                 className={active ? 'heart-active' : 'heart-inactive'}
+                
                 />
                 <span className="like-count">{likes}</span>
         </button>

@@ -1,9 +1,17 @@
+import Yoongi from '../../assets/yoongi.jpg';
+import Hyunjin from '../../assets/hyujin.jpg';
+import HarryTomilson from '../../assets/harry.jpg';
+import BradPitt from '../../assets/bradpitt.jpg';
+import MichaelJordan from '../../assets/michael.jpg';
+import LoliBahia from '../../assets/loliBahia.jpg';
+import AronPiper from '../../assets/AronPiper.jpg';
+
 export const users = [
   {
     id: 1,
     username: "Loli Bahia",
     age: 20,
-    image: "/assets/loliBahia.jpg",
+    image: LoliBahia,
     compatibility: "They have a 85% compatibility"
   },
 
@@ -11,7 +19,7 @@ export const users = [
     id: 2,
     username: "Yoongi",
     age: 27,
-    image: "/assets/yoongi.jpg",
+    image: Yoongi,
     compatibility: "They have a 60% compatibility"
   },
 
@@ -19,7 +27,7 @@ export const users = [
     id: 3,
     username: "Hyunjin",
     age: 20,
-    image: "/assets/hyujin.jpg",
+    image: Hyunjin,
     compatibility: "They have a 62% compatibility"
   },
 
@@ -27,7 +35,7 @@ export const users = [
     id: 4,
     username: "Harry Tomilson",
     age: 19,
-    image: "/assets/harry.jpg",
+    image: HarryTomilson,
     compatibility: "They have a 58% compatibility"
   },
 
@@ -35,7 +43,7 @@ export const users = [
     id: 5,
     username: "Brad Pitt",
     age: 30,
-    image: "assets/bradpitt.jpg",
+    image: BradPitt,
     compatibility: "They have a 48% compatibility"
   },
 
@@ -43,7 +51,7 @@ export const users = [
     id: 6,
     username: "Michael Jordan",
     age: 32,
-    image: "assets/michael.jpg",
+    image: MichaelJordan,
     compatibility: "They have a 68% compatibility"
   },
 
@@ -51,7 +59,7 @@ export const users = [
     id: 7,
     username: "Aron Piper",
     age: 29,
-    image: "assets/AronPiper.jpg",
+    image: AronPiper,
     compatibility: "They have a 98% compatibility"
   }
 ];

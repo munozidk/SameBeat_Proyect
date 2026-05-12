@@ -1,8 +1,14 @@
+import AronPiper from '../../assets/AronPiper.jpg';
+import Jennie from "../../assets/jennie.jpg";
+import Greicy from '../../assets/greicy.jpg';
+import Jorge from "../../assets/jorge.jpg";
+import Gaston from '../../assets/gaston.jpg';
+
 export const posts = [
   {
     id: 1,
     user: "Aron Piper",
-    image: "assets/AronPiper.jpg",
+    image: AronPiper,
 
     text:
       "I love going with Alvaro Diaz's community in Colombia. Everyone has a wonderful vibe.",
@@ -14,7 +20,7 @@ export const posts = [
       {
         id: 1,
         user: "Jennie Kim",
-        image: "assets/jennie.jpg",
+        image: Jennie,
         text: "Amazing! 🎶"
       }
     ]
@@ -23,7 +29,7 @@ export const posts = [
   {
     id: 2,
     user: "Jennie Kim",
-    image: "assets/jennie.jpg",
+    image: Jennie,
 
     text:
       "Haha, it was the best night of my life #1DFOREVER",
@@ -35,7 +41,7 @@ export const posts = [
       {
         id: 1,
         user: "Aron Piper",
-        image: "assets/AronPiper.jpg",
+        image: AronPiper,
         text: "Best night ever! 🔥"
       }
     ]
@@ -44,7 +50,7 @@ export const posts = [
   {
     id: 3,
     user: "Greicy R",
-    image: "assets/greicy.jpg",
+    image: Greicy,
 
     text:
       "The BTS concert was literally the best day of my life, I can't believe I saw them live.",
@@ -58,7 +64,7 @@ export const posts = [
   {
     id: 4,
     user: "Jorge Blanco",
-    image: "assets/jorge.jpg",
+    image: Jorge,
 
     text:
       "Young Miko killed it, she had so much stage presence, I loved it.",
@@ -72,7 +78,7 @@ export const posts = [
   {
     id: 5,
     user: "Gaston Sierra",
-    image: "assets/gaston.jpg",
+    image: Gaston,
 
     text:
       "Maluma live is on another level, if you have the chance to go to his tour, take it!!!",
