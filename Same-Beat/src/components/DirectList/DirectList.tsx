@@ -1,7 +1,7 @@
 import "./DirectList.css"
 
 // Importamos los chats desde el archivo JSON
-import chatsData from "../../data/chats.json"
+import chatsData from "../../data/chats/chats.json"
 
 /* 
   Interface Chat
