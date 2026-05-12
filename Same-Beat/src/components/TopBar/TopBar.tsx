@@ -1,6 +1,6 @@
 import { Bell, Settings } from "lucide-react"
 import "./TopBar.css"
-
+import profile from "../../assets/profile.jpg"
 // Interface que define qué props puede recibir el componente
 interface TopBarProps {
   children?: React.ReactNode  // children es opcional (?)
@@ -8,6 +8,8 @@ interface TopBarProps {
 
 // Componente TopBar (barra superior de la app)
 const TopBar = ({ children }: TopBarProps) => {
+
+  
   return (
     <header className="topbar">
 
@@ -22,13 +24,16 @@ const TopBar = ({ children }: TopBarProps) => {
       {/* SECCIÓN DERECHA - Avatar, notificaciones y configuración */}
       <div className="topbar__actions">
 
-        {/* Avatar (foto de perfil) */}
-        <div className="topbar__avatar">
-          <img
-            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
-            alt="profile"
-          />
-        </div>
+       
+        {/* Avatar */}
+            <div className="profile__avatar">
+
+              <img
+                src={profile}
+                alt="profile"
+              />
+
+            </div>
 
         {/* Botón de notificaciones */}
         <button className="topbar__icon-btn">
