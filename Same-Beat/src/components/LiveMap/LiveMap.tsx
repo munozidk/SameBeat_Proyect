@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom"
   marcador de ubicación
   
   Popup:
-  ventana emergente al hacer click
+  card flotante al hacer click
 */
 import {
   MapContainer,
@@ -155,7 +155,7 @@ const customIcon = new L.Icon({
   iconUrl:
     "https://cdn-icons-png.flaticon.com/512/684/684908.png",
 
-  iconSize: [36, 36]
+  iconSize: [52, 52]
 })
 
 /* 
@@ -315,42 +315,73 @@ const LiveMap = ({
             >
 
               {/* 
-                Popup
+                Popup custom
                 
-                Aparece al hacer click
-                sobre el marcador
+                Card flotante aesthetic
+                estilo dating app
               */}
-              <Popup>
+              <Popup
+                closeButton={false}
+                className="custom-popup"
+                offset={[0, -20]}
+              >
 
-                {/* Card usuario */}
-                <div className="map-user-card">
+                {/* 
+                  CARD USER
+                  
+                  Alterna entre:
+                  
+                  - purple
+                  - green
+                */}
+                <div
+                  className={`map-user-card ${
+                    user.id % 2 === 0
+                      ? "green"
+                      : "purple"
+                  }`}
+                >
 
-                  {/* Imagen */}
-                  <img
-                    src={user.image}
-                    alt={user.username}
-                  />
+                  {/* 
+                    Imagen usuario
+                  */}
+                  <div className="map-user-card__image">
 
-                  {/* Nombre + edad */}
-                  <h3>
+                    <img
+                      src={user.image}
+                      alt={user.username}
+                    />
 
-                    {user.username}, {user.age}
+                  </div>
 
-                  </h3>
+                  {/* 
+                    Info usuario
+                  */}
+                  <div className="map-user-card__content">
 
-                  {/* Compatibilidad */}
-                  <p>
+                    {/* Nombre + edad */}
+                    <h3>
 
-                    {user.compatibility} compatibility
+                      {user.username}, {user.age}
 
-                  </p>
+                    </h3>
 
-                  {/* Botón match */}
-                  <button>
+                    {/* Gustos musicales */}
+                    <p>
 
-                    Match
+                      Metro boomin, Drake,
+                      Kendrick Lamar, Kid Cudi
 
-                  </button>
+                    </p>
+
+                    {/* Botón match */}
+                    <button>
+
+                      Make a match
+
+                    </button>
+
+                  </div>
 
                 </div>
 
