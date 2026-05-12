@@ -7,11 +7,20 @@ import SignUpScreen from "./screens/SignUpScreen/SignUpScreen";
 import ChatInteractivo from "./components/chatInteractivo/ChatInteractivo";
 import HomeScreen from "./screens/HomeScreen/HomeScreen";
 
+import Sidebar from "./components/Sidebar/SideBar";
+
 
 
 import "./index.css";
 
-
+function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ display: "flex", height: "100vh" }}>
+      <Sidebar />
+      {children}
+    </div>
+  );
+}
 
 function App() {
 
@@ -42,11 +51,11 @@ function App() {
         />
 
         <Route
-          path="/home"
+           path="/home"
           element={
-            
-                <HomeScreen />
-        
+            <AppLayout>
+              <HomeScreen />
+            </AppLayout>
           }
         />
 
