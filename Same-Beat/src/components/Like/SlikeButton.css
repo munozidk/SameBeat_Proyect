@@ -4,13 +4,14 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 15px;
     color: white;
 }
 
 .like-count {
     font-size: 12px;
     font-weight: 600;
+    padding-top: 50px;
 }
 
 .heart-active {
