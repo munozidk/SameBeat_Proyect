@@ -27,19 +27,24 @@
 }
 
 .icon-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.icon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .count {
-    font-size: 12px;
-    font-weight: 600;
-    color: white;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
 }
 
 /* Author */
@@ -125,16 +130,12 @@
 }
 
 .comment-user {
-    font-size: 11px;
-    font-weight: 700;
-    color: #C6FF34;
+  font-size: 13px;
+  font-weight: 700;
+  color: #C6FF34;
+  line-height: 1.4;
 }
 
-.comment-user {
-    font-size: 13px;
-    color: white;
-    line-height: 1.4;
-}
 
 /*Input*/
 
@@ -155,14 +156,15 @@
     outline: none;
 }
 
-.send-button {
-    width: 34px;
-    height: 34px;
-    background: linear-gradient(135deg, #C6FF34 0%, #D5FF6B 100%);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+.send-btn {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #C6FF34 0%, #D5FF6B 100%);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }

@@ -98,3 +98,16 @@ body,
     position: relative;
     overflow-x: hidden;
 }
+svg {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  stroke: currentColor;
+  fill: none;
+}
+svg {
+  vertical-align: middle;   
+  line-height: 1;           
+  stroke: currentColor;     
+  fill: none;               
+}
