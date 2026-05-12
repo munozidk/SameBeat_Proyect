@@ -6,8 +6,8 @@ import ProfileBio from '../../components/Profile/ProfileBio';
 import ProfileActions from '../../components/Profile/ProfileActions';
 import BackButton from '../../components/BackButton/BackButton';
 import StoryViewerScreen from '../Stories/StoryViewerScreen';
-import { userProfile } from '../../data/profile/userProfile';
-import { concerts } from '../../data/concerts/concerts';
+import { userProfile } from '../../data/profile/userProfile.json';
+import { concerts } from '../../data/concerts/concerts.json';
 import styles from './ProfileScreen.module.css';
 
 const ProfileScreen: React.FC = () => {
