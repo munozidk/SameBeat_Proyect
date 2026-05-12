@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 60% 100% at 90% 20%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.3) 45%, transparent 70%),
+    radial-gradient(circle at 60% 40%, rgba(26,19,51,0.9) 0%, rgba(11,10,26,1) 70%),
+    radial-gradient(circle at 30% 70%, rgba(124,58,237,0.6) 0%, rgba(88,28,135,0.3) 40%, transparent 70%),
+    linear-gradient(135deg, #0b0a1a, #1a1333, #0f0c29);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ruido */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* glow morado */
+body::after {
+  content: "";
+  position: absolute;
+
+  width: 700px;
+  height: 800px;
+
+  bottom: -250px;
+  left: -300px;
+
+  background: radial-gradient(circle,
+    rgba(124,58,237,0.9) 0%,
+    rgba(88,28,135,0.8) 45%,
+    rgba(88,28,135,0.3) 65%,
+    transparent 80%
+  );
+
+  border-radius: 50%;
+  filter: blur(30px);
+}
