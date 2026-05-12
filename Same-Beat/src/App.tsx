@@ -6,6 +6,7 @@ import GenresScreen from "./screens/GenresScreen/ConcertGenres";
 import SignUpScreen from "./screens/SignUpScreen/SignUpScreen";
 import ChatInteractivo from "./components/chatInteractivo/ChatInteractivo";
 import HomeScreen from "./screens/HomeScreen/HomeScreen";
+import DiscoverScreen from "./screens/DiscoverScreen/DiscoverScreen";
 
 import Sidebar from "./components/Sidebar/SideBar";
 
@@ -58,6 +59,15 @@ function App() {
             </AppLayout>
           }
         />
+
+        <Route                    
+           path="/discover"
+          element={
+        <AppLayout>
+          <DiscoverScreen />
+        </AppLayout>
+  }
+/>
 
         
 
