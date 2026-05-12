@@ -250,10 +250,10 @@ body::before{
 
   gap:70px;
 
+  padding:40px;
+
   position:relative;
   z-index:2;
-
-  padding:40px 80px;
 }
 
 /* LEFT PANEL */
@@ -270,19 +270,14 @@ body::before{
 /* RIGHT PANEL */
 
 .right-panel{
-  width:380px;
+  width:100%;
+  max-width:420px;
 
   display:flex;
   flex-direction:column;
-  align-items:center;
-}
+  justify-content:center;
 
-/* MASCOT */
-
-.mini-mascot{
-  width:110px;
-
-  margin-bottom:-8px;
+  padding:10px 0;
 }
 
 /* TITLE */
@@ -299,11 +294,16 @@ body::before{
 }
 
 .subtitle{
-  color:white;
-
+  width:100%;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#ffffff;
   font-size:1.1rem;
-
-  margin-bottom:25px;
+  margin-top:-2px;
+  margin-bottom:28px;
+  opacity:.9;
 }
 
 /* FORM */
@@ -411,8 +411,10 @@ body::before{
   );
 
 .create-btn:disabled{
-  cursor: not-allowed !important;
-  opacity: .7;
+  opacity:.45;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
 }
 
   color:white;
@@ -437,10 +439,10 @@ body::before{
 /* LOGIN */
 
 .login-link{
-  margin-top:25px;
-  color:white;
+  margin-top:16px;
   text-align:center;
-  font-size:1rem;
+  color:#ffffff;
+  font-size:.95rem;
 }
 
 .login-link a{
@@ -449,4 +451,223 @@ body::before{
   text-decoration:none;
 
   font-weight:600;
+}
+
+.double-input{
+  display:flex;
+  gap:14px;
+  width:100%;
+}
+
+.double-input .input-group{
+  flex:1;
+}
+
+.error-message{
+  color:#ff6b6b;
+  font-size:.9rem;
+  margin-top:6px;
+  text-align:center;
+}
+
+.create-btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+/* ---------- LAPTOP PEQUEÑA / TABLET ---------- */
+
+@media (max-width:1100px){
+
+  .register-container{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 24px;
+  }
+
+  /* Oculta ilustración */
+
+  .left-panel{
+    display:none;
+  }
+
+  /* Formulario centrado */
+
+  .right-panel{
+  width:100%;
+  max-width:460px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  padding:42px 38px;
+
+  border-radius:32px;
+
+  background:
+    rgba(35, 18, 72, 0.72);
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.28);
+}
+
+  .right-panel h1{
+    font-size:4.8rem;
+
+    text-align:center;
+
+    line-height:1;
+  }
+
+  .subtitle{
+    text-align:center;
+
+    margin-top:4px;
+    margin-bottom:24px;
+
+    font-size:1rem;
+  }
+
+  .register-form{
+    width:100%;
+  }
+
+  /* Nombre + apellido */
+
+  .double-input{
+    grid-template-columns:1fr;
+  }
+
+  .input-group{
+    height:52px;
+  }
+
+  .create-btn{
+    height:54px;
+
+    margin-top:4px;
+  }
+
+  .login-link{
+    margin-top:18px;
+
+    text-align:center;
+  }
+
+}
+
+/* ---------- CELULAR ---------- */
+
+@media (max-width:600px){
+
+  .register-container{
+    padding:28px 18px;
+  }
+
+  .right-panel{
+  padding:34px 24px;
+  border-radius:28px;
+  }
+
+  .right-panel h1{
+    font-size:3.8rem;
+  }
+
+  .subtitle{
+    font-size:.95rem;
+
+    margin-bottom:22px;
+  }
+
+  .register-form{
+    gap:0;
+  }
+
+  .input-group{
+    height:50px;
+
+    padding:0 14px;
+
+    border-radius:14px;
+  }
+
+  .input-group input{
+    font-size:.92rem;
+  }
+
+  .checkbox-group{
+    font-size:.88rem;
+
+    line-height:1.4;
+
+    align-items:flex-start;
+  }
+
+  .create-btn{
+    height:52px;
+
+    font-size:.95rem;
+
+    border-radius:14px;
+  }
+
+  .login-link{
+    font-size:.92rem;
+
+    margin-top:16px;
+  }
+
+  .password-error{
+    font-size:.8rem;
+  }
+
+}
+
+/* ---------- CELULAR PEQUEÑO ---------- */
+
+@media (max-width:400px){
+
+  .register-container{
+    padding:22px 14px;
+  }
+
+  .right-panel h1{
+    font-size:3.1rem;
+  }
+
+  .subtitle{
+    font-size:.9rem;
+  }
+
+  .input-group{
+    height:48px;
+  }
+
+  .create-btn{
+    height:50px;
+  }
+
+  .checkbox-group{
+    font-size:.82rem;
+  }
+
+  .login-link{
+    font-size:.85rem;
+  }
+
 }

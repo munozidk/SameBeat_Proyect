@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import OnboardingScreen from "./screens/OnboardingScreen/OnboardingScreen";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
-import GenresScreen from "./screens/GenresScreen/genresScreen";
+import GenresScreen from "./screens/GenresScreen/ConcertGenres";
 import SignUpScreen from "./screens/SignUpScreen/SignUpScreen";
+import ChatInteractivo from "./components/chatInteractivo/ChatInteractivo";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 
@@ -40,6 +41,11 @@ function App() {
         <Route
           path="/sidebar"
           element={<Sidebar />}
+        />
+
+        <Route
+          path="/chat-test"
+          element={<ChatInteractivo />}
         />
 
       </Routes>
