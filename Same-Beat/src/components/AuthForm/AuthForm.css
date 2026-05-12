@@ -63,14 +63,51 @@ h1 {
   width: 18px;
 }
 
-/* DIVIDER */
-.divider {
-  color: #cfcfcf;
-  margin-bottom: 15px;
+.divider{
 
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  width: 100%;
 
-  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  color: #d9d9d9;
+
+  font-size: 0.95rem;
+
+  margin: 22px 0;
+
+  text-align: center;
+}
+
+/* LINEA IZQUIERDA */
+
+.divider::before{
+
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    rgba(255,255,255,0.18);
+}
+
+/* LINEA DERECHA */
+
+.divider::after{
+
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    rgba(255,255,255,0.18);
 }
 
 /* INPUTS */
@@ -181,4 +218,36 @@ h1 {
     width: 100%;
   }
 
+}
+
+/* BOTÓN DESHABILITADO */
+
+
+.signup.disabled{
+
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.signup.disabled:hover{
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* QUITAR FONDO BLANCO DEL AUTOCOMPLETE */
+
+input:-webkit-autofill{
+
+  -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.06) inset;
+
+  -webkit-text-fill-color: white;
+
+  transition: background-color 9999s ease-in-out 0s;
+
+  caret-color: white;
 }
