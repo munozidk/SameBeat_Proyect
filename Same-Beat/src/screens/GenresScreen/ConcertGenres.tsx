@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./ConcertGenres.module.css";
 
 const genres = [
@@ -23,6 +24,7 @@ function normalize(str: string): string {
 }
 
 export default function ConcertGenres() {
+  const navigate = useNavigate();
   const [search, setSearch]           = useState<string>("");
   const [useLocation, setUseLocation] = useState<boolean>(true);
   const [selected, setSelected]       = useState<Set<string>>(new Set());
@@ -142,6 +144,7 @@ export default function ConcertGenres() {
             styles.ticketBtn,
             selected.size > 0 ? styles.ticketBtnActive : "",
           ].join(" ")}
+          onClick={() => navigate("/home")}
         >
           <i className={`fa-solid fa-ticket ${styles.ticketIcon}`} />
           <span>

@@ -5,10 +5,13 @@ import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import GenresScreen from "./screens/GenresScreen/ConcertGenres";
 import SignUpScreen from "./screens/SignUpScreen/SignUpScreen";
 import ChatInteractivo from "./components/chatInteractivo/ChatInteractivo";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
 
-import Sidebar from "./components/Sidebar/Sidebar";
+
 
 import "./index.css";
+
+
 
 function App() {
 
@@ -39,9 +42,15 @@ function App() {
         />
 
         <Route
-          path="/sidebar"
-          element={<Sidebar />}
+          path="/home"
+          element={
+            
+                <HomeScreen />
+        
+          }
         />
+
+        
 
         <Route
           path="/chat-test"
