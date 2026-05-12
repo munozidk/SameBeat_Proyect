@@ -5,6 +5,7 @@ import ProfileHeaderInfo from '../../components/Profile/ProfileHeaderInfo';
 import ProfileBio from '../../components/Profile/ProfileBio';
 import ProfileActions from '../../components/Profile/ProfileActions';
 import BackButton from '../../components/BackButton/BackButton';
+import StoriesSection from '../../components/Stories/StoriesSection';
 import StoryViewerScreen from '../Stories/StoryViewerScreen';
 import { userProfile } from '../../data/profile/userProfile';
 import { concerts } from '../../data/concerts/concerts';
@@ -58,6 +59,10 @@ const ProfileScreen: React.FC = () => {
           <ProfileActions 
             onEdit={() => console.log('Edit Profile')}
             onMessages={() => console.log('Messages')}
+          />
+          <StoriesSection 
+            stories={storiesData} 
+            onStoryClick={handleStoryClick} 
           />
         </div>
       </div>

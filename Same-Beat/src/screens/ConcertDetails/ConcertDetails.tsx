@@ -15,7 +15,7 @@ const ConcertDetails: React.FC = () => {
         return (
             <div className="screen-container flex items-center justify-center">
                 <p className="text-white">Concert not found</p>
-                <button 
+                <button
                     onClick={() => navigate('/')}
                     className="ml-4 underline text-white"
                 >
@@ -26,28 +26,31 @@ const ConcertDetails: React.FC = () => {
     }
 
     return (
-        <motion.div 
+        <motion.div
             className="screen-container concert-details-screen"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
         >
-            <Header 
-                title="Details of Concerts" 
+            <Header
+                title="Details of Concerts"
                 onBack={() => navigate(-1)}
                 profilePic="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
                 hideProfileOnDesktop={true}
             />
             <div className="details-scroll-content">
                 <div className="ticket-wrapper">
-                    <VerticalConcertCard 
+                    <VerticalConcertCard
                         image={concert.image}
                         tour={concert.tour}
                         date={concert.date}
                         time={concert.openingTime}
                         place={`${concert.venue} - ${concert.location}`}
                         description={concert.description}
-                        onViewMore={() => navigate(`/concert/${concert.id}/description`)}
+                        onViewMore={() => {
+                            console.log('navigating to:', `/concert/${concert.id}/description`);
+                            navigate(`/concert/${concert.id}/description`);
+                        }}
                     />
                 </div>
             </div>
