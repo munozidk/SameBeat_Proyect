@@ -42,7 +42,7 @@ export const posts = [
         id: 1,
         user: "Aron Piper",
         image: AronPiper,
-        text: "Best night ever! 🔥"
+        text: "Best night ever!, I hope they never break up"
       }
     ]
   },
