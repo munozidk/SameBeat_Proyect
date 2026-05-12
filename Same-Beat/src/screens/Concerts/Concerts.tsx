@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import ConcertCard from "../../components/ConcertCard/ConcertCard";
-import { concerts } from '../../data/concerts/concerts';
+import { concerts } from '../../data/concerts/concerts.json';
 import { useFilter } from '../../contexts/FilterContext';
 import './Concerts.css';
 

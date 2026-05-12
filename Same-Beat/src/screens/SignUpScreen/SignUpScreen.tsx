@@ -1,14 +1,126 @@
 import "./SignupScreen.css";
-import { Link, useNavigate } from "react-router-dom";
+
+import {
+  Link,
+  useNavigate,
+} from "react-router-dom";
+
 import { useState } from "react";
 
 import loginImg from "../../assets/Log in.svg";
-import mascota from "../../assets/mascota.svg";
 
 function SignupScreen() {
 
-  const [accepted, setAccepted] = useState(false);
   const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    phone: "",
+    email: "",
+    dateOfBirth: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [accepted, setAccepted] = useState(false);
+
+  const [error, setError] = useState("");
+
+  // Track if user has attempted to interact with the form
+  const [attempted, setAttempted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+
+    setAttempted(true);
+
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+  };
+
+  const isFormValid =
+    formData.firstName.trim() !== "" &&
+    formData.lastName.trim() !== "" &&
+    formData.username.trim() !== "" &&
+    formData.phone.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.dateOfBirth.trim() !== "" &&
+    formData.password.trim() !== "" &&
+    formData.confirmPassword.trim() !== "" &&
+    formData.password === formData.confirmPassword &&
+    accepted;
+
+  const handleSubmit = (
+    e: React.FormEvent
+  ) => {
+
+    e.preventDefault();
+
+    setError("");
+
+    if (!accepted) {
+
+      setError(
+        "You must accept the terms and conditions."
+      );
+
+      return;
+
+    }
+
+    if (
+      formData.password !==
+      formData.confirmPassword
+    ) {
+
+      setError(
+        "Passwords do not match."
+      );
+
+      return;
+
+    }
+
+    const users = JSON.parse(
+      localStorage.getItem("users") || "[]"
+    );
+
+    const emailExists = users.some(
+      (user: any) =>
+        user.email === formData.email
+    );
+
+    if (emailExists) {
+
+      setError(
+        "This email is already registered."
+      );
+
+      return;
+
+    }
+
+    users.push(formData);
+
+    localStorage.setItem(
+      "users",
+      JSON.stringify(users)
+    );
+
+    localStorage.setItem(
+      "currentUser",
+      JSON.stringify(formData)
+    );
+
+    navigate("/genres");
+
+  };
 
   return (
     <>
@@ -66,37 +178,76 @@ function SignupScreen() {
         {/* RIGHT */}
         <section className="right-panel">
 
-          <img
-            src={mascota}
-            alt="Mascota"
-            className="mini-mascot"
-          />
-
           <h1>Sign Up</h1>
 
           <p className="subtitle">
-            Get started!!
+            Create your account
           </p>
 
           <form
             className="register-form"
-            onSubmit={(e) => {
-                e.preventDefault();
-
-                if (accepted) {
-                navigate("/genres");
-                }
-            }}
+            onSubmit={handleSubmit}
           >
 
-            {/* USER */}
+            {/* NAME */}
+            <div className="double-input">
+
+              <div className="input-group">
+
+                <i className="fa-regular fa-user"></i>
+
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
+
+              </div>
+
+              <div className="input-group">
+
+                <i className="fa-regular fa-user"></i>
+
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+
+              </div>
+
+            </div>
+
+            {/* USERNAME */}
             <div className="input-group">
 
               <i className="fa-regular fa-id-badge"></i>
 
               <input
                 type="text"
-                placeholder="User name"
+                name="username"
+                placeholder="Username"
+                value={formData.username}
+                onChange={handleChange}
+              />
+
+            </div>
+
+            {/* PHONE */}
+            <div className="input-group">
+
+              <i className="fa-solid fa-phone"></i>
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone number"
+                value={formData.phone}
+                onChange={handleChange}
               />
 
             </div>
@@ -108,7 +259,26 @@ function SignupScreen() {
 
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+
+            </div>
+
+            {/* DATE OF BIRTH */}
+            <div className="input-group input-group--date">
+
+              <i className="fa-regular fa-calendar"></i>
+
+              <input
+                type="date"
+                name="dateOfBirth"
+                placeholder="Date of birth"
+                value={formData.dateOfBirth}
+                onChange={handleChange}
+                max={new Date().toISOString().split("T")[0]}
               />
 
             </div>
@@ -120,39 +290,76 @@ function SignupScreen() {
 
               <input
                 type="password"
+                name="password"
                 placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
               />
 
             </div>
 
-            {/* CHECK */}
+            {/* CONFIRM PASSWORD */}
+            <div className="input-group">
+
+              <i className="fa-solid fa-lock"></i>
+
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+              />
+
+            </div>
+
+            {/* CHECKBOX */}
             <label className="checkbox-group">
 
               <input
                 type="checkbox"
                 checked={accepted}
-                onChange={(e) => setAccepted(e.target.checked)}
+                onChange={(e) => {
+                  setAttempted(true);
+                  setAccepted(e.target.checked);
+                }}
               />
 
               <span>
-                I accept terms and conditions
+                I accept the{" "}
+                <a href="#" className="link-terms">
+                  Terms of Service
+                </a>
+                {" "}and{" "}
+                <a href="#" className="link-privacy">
+                  Privacy Policy
+                </a>
               </span>
 
             </label>
 
+            {/* ERROR */}
+            {error && (
+              <p className="error-message">
+                {error}
+              </p>
+            )}
+
             {/* BUTTON */}
             <button
               type="submit"
-              className="create-btn"
-              disabled={!accepted}
+              className={`create-btn${attempted && !isFormValid ? " create-btn--error" : ""}`}
+              disabled={!isFormValid}
             >
-              {accepted ? "Create Account" : "Create Account"}
+
+              Create
+
             </button>
 
             {/* LOGIN */}
             <p className="login-link">
 
-              Already have an account?
+              Already have an account?{" "}
 
               <Link to="/login">
                 Sign in

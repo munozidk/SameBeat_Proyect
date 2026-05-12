@@ -1,11 +1,25 @@
 import "./AuthForm.css";
 import mascota from "../../assets/mascota.svg";
 import { useNavigate } from "react-router-dom";
-  
+import { useState } from "react";
+
 function AuthForm() {
+
   const navigate = useNavigate();
 
+  /* ESTADOS */
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  /* VALIDACIÓN */
+
+  const isDisabled =
+    email.trim() === "" ||
+    password.trim() === "";
+
   return (
+
     <div className="right">
 
       {/* Mascota */}
@@ -15,10 +29,10 @@ function AuthForm() {
         className="mascota"
       />
 
-      <h1>Sign Up</h1>
+      <h1>Log In</h1>
 
       <p className="sub">
-        Sign Up with Open account
+        with email
       </p>
 
       {/* BOTONES */}
@@ -37,11 +51,12 @@ function AuthForm() {
       </div>
 
       <p className="divider">
-        Or continue with phone number
+        Or continue with
       </p>
 
-      {/* INPUT */}
+      {/* INPUT EMAIL */}
       <div className="input-box">
+
         <img
           src="https://cdn-icons-png.flaticon.com/512/597/597177.png"
           className="icon"
@@ -49,12 +64,18 @@ function AuthForm() {
 
         <input
           type="text"
-          placeholder="Phone number"
+          name="email"
+          autoComplete="email"
+          placeholder="Phone number or email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
+
       </div>
 
-      {/* INPUT */}
+      {/* INPUT PASSWORD */}
       <div className="input-box">
+
         <img
           src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png"
           className="icon"
@@ -62,26 +83,35 @@ function AuthForm() {
 
         <input
           type="password"
+          name="password"
+          autoComplete="current-password"
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
+
       </div>
 
       {/* BOTÓN */}
-       <button
-        className="signup"
+      <button
+        className={`signup ${isDisabled ? "disabled" : ""}`}
+        disabled={isDisabled}
         onClick={() => navigate("/genres")}
-       >
-        Sign Up
-        </button>
+      >
+        Log In
+      </button>
 
       <p className="login">
-      Don’t have an account?{" "}
-  
-      <span onClick={() => navigate("/signup")}>
-       Sign Up
-      </span>
+        Don’t have an account?{" "}
+
+        <span onClick={() => navigate("/signup")}>
+          Sign Up
+        </span>
+
       </p>
-    </div>);
+
+    </div>
+  );
 }
 
 export default AuthForm;
