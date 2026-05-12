@@ -1,0 +1,64 @@
+/* Reemplaza todo el HomeScreen.css por esto */
+
+.home-screen {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: 100%; /* clave para que los hijos tengan altura */
+}
+
+.home-screen__feed-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0; /* evita que el feed empuje el panel */
+}
+
+.home-screen__fab {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C6FF34, #D5FF6B);
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #000;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    -2.36px -4.72px 4.72px #A5D233 inset,
+    0px 2.36px 11.8px #CEFF51 inset;
+}
+
+.home-screen__right-panel {
+  width: 320px;
+  flex-shrink: 0;        /* no se encoge */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 20px;
+  overflow-y: auto;
+  height: 100%;          /* ocupa toda la altura del padre */
+  align-self: flex-start; /* se queda arriba */
+  position: sticky;       /* se queda fijo mientras el feed scrollea */
+  top: 0;
+}
+
+@media (max-width: 1023px) {
+  .home-screen__right-panel {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-screen__fab {
+    display: none;
+  }
+}
