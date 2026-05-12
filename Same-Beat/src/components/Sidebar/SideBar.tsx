@@ -2,6 +2,7 @@ import "./Sidebar.css"
 import mockis from "../../assets/mockis.png"
 
 import { useState } from "react"
+import { useNavigate } from "react-router-dom" 
 
 // Icons
 import {
@@ -15,7 +16,7 @@ import {
 
 const Sidebar = () => {
 
-  // Estado para controlar el botón activo
+  const navigate = useNavigate() 
   const [active, setActive] = useState("Home")
 
   return (
@@ -24,13 +25,11 @@ const Sidebar = () => {
 
       {/* Logo */}
       <div className="sidebar__logo">
-
         <img
           src={mockis}
           alt="Mockis"
           className="sidebar__logo-img"
         />
-
       </div>
 
       {/* TOP SECTION */}
@@ -44,75 +43,59 @@ const Sidebar = () => {
 
           {/* HOME */}
           <button
-            className={`sidebar__nav-btn ${
-              active === "Home" ? "active" : ""
-            }`}
-            onClick={() => setActive("Home")}
+            className={`sidebar__nav-btn ${active === "Home" ? "active" : ""}`}
+            onClick={() => {
+              setActive("Home")
+              navigate("/home") 
+            }}
           >
-
             <House size={22} />
             <span>Home</span>
-
           </button>
 
           {/* CONCERTS */}
           <button
-            className={`sidebar__nav-btn ${
-              active === "Concerts" ? "active" : ""
-            }`}
+            className={`sidebar__nav-btn ${active === "Concerts" ? "active" : ""}`}
             onClick={() => setActive("Concerts")}
           >
-
             <Ticket size={22} />
             <span>Concerts</span>
-
           </button>
 
           {/* MUSIC */}
           <button
-            className={`sidebar__nav-btn ${
-              active === "Music" ? "active" : ""
-            }`}
-            onClick={() => setActive("Music")}
+            className={`sidebar__nav-btn ${active === "Music" ? "active" : ""}`}
+            onClick={() => {
+              setActive("Music")
+              navigate("/discover") 
+            }}
           >
-
             <Headphones size={22} />
             <span>Music</span>
-
           </button>
 
           {/* PROFILE */}
           <button
-            className={`sidebar__nav-btn ${
-              active === "Profile" ? "active" : ""
-            }`}
+            className={`sidebar__nav-btn ${active === "Profile" ? "active" : ""}`}
             onClick={() => setActive("Profile")}
           >
-
             <UserRound size={22} />
             <span>Profile</span>
-
           </button>
 
           {/* CREATE */}
           <button
-            className={`sidebar__nav-btn create-btn ${
-              active === "Create" ? "active" : ""
-            }`}
+            className={`sidebar__nav-btn create-btn ${active === "Create" ? "active" : ""}`}
             onClick={() => setActive("Create")}
           >
-
             <Plus size={22} />
             <span>Create</span>
-
           </button>
 
           {/* LOGOUT */}
           <button className="sidebar__logout-btn">
-
             <LogOut size={22} />
             <span>Logout</span>
-
           </button>
 
         </nav>
