@@ -1,13 +1,19 @@
 import React from 'react';
-import StoryThumbnail, { StoryThumbnailProps } from './StoryThumbnail';
+import StoryThumbnail from './StoryThumbnail';
 import styles from './StoriesContainer.module.css';
 
-interface StoriesContainerProps {
-  stories: Omit<StoryThumbnailProps, 'onClick'>[];
+interface StoryItem {
+  id: number;
+  thumbnail: string;
+  title: string;
+}
+
+interface StoriesSectionProps {
+  stories: StoryItem[];
   onStoryClick: (id: number) => void;
 }
 
-const StoriesContainer: React.FC<StoriesContainerProps> = ({ stories, onStoryClick }) => {
+const StoriesSection: React.FC<StoriesSectionProps> = ({ stories, onStoryClick }) => {
   return (
     <div className={styles.container}>
       <div className={styles.scrollWrapper}>
@@ -23,4 +29,4 @@ const StoriesContainer: React.FC<StoriesContainerProps> = ({ stories, onStoryCli
   );
 };
 
-export default StoriesContainer;
+export default StoriesSection;

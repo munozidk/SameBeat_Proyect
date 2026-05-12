@@ -13,10 +13,8 @@ const StoryThumbnail: React.FC<StoryThumbnailProps> = ({ id, thumbnail, title, o
     <div className={styles.wrapper} onClick={() => onClick(id)}>
       <div className={styles.container}>
         <img src={thumbnail} alt={title} className={styles.image} />
-        <div className={styles.overlay}>
-          <span className={styles.title}>{title}</span>
-        </div>
       </div>
+      <span className={styles.title}>{title}</span>
     </div>
   );
 };
