@@ -2,6 +2,7 @@
   {
     "id": 1,
     "userId": 1,
+    "name": "Emma Johnson",
     "lastMessage": "Hey! How are you?",
     "timestamp": "10:30 AM",
     "unreadCount": 2
@@ -10,6 +11,7 @@
   {
     "id": 2,
     "userId": 2,
+    "name": "Liam Carter",
     "lastMessage": "See you later!",
     "timestamp": "Yesterday",
     "unreadCount": 0
@@ -18,6 +20,7 @@
   {
     "id": 3,
     "userId": 3,
+    "name": "Sophia Miller",
     "lastMessage": "Are we still meeting tonight?",
     "timestamp": "9:12 PM",
     "unreadCount": 5
@@ -26,6 +29,7 @@
   {
     "id": 4,
     "userId": 4,
+    "name": "Noah Wilson",
     "lastMessage": "I sent the files already.",
     "timestamp": "Monday",
     "unreadCount": 1
@@ -34,6 +38,7 @@
   {
     "id": 5,
     "userId": 5,
+    "name": "Olivia Davis",
     "lastMessage": "That playlist was amazing 😭",
     "timestamp": "2:40 PM",
     "unreadCount": 0
@@ -42,6 +47,7 @@
   {
     "id": 6,
     "userId": 6,
+    "name": "Ethan Brown",
     "lastMessage": "Can you call me later?",
     "timestamp": "11:45 AM",
     "unreadCount": 3
@@ -50,6 +56,7 @@
   {
     "id": 7,
     "userId": 7,
+    "name": "Ava Martinez",
     "lastMessage": "Let's work on the UI tomorrow.",
     "timestamp": "Yesterday",
     "unreadCount": 0
@@ -58,6 +65,7 @@
   {
     "id": 8,
     "userId": 8,
+    "name": "Mason Taylor",
     "lastMessage": "OMG SAMEBEAT LOOKS INSANE",
     "timestamp": "5 mins ago",
     "unreadCount": 7
@@ -66,6 +74,7 @@
   {
     "id": 9,
     "userId": 9,
+    "name": "Isabella Moore",
     "lastMessage": "The animations feel so smooth.",
     "timestamp": "8:01 AM",
     "unreadCount": 0
@@ -74,6 +83,7 @@
   {
     "id": 10,
     "userId": 10,
+    "name": "James Anderson",
     "lastMessage": "Can you review my component?",
     "timestamp": "Sunday",
     "unreadCount": 4
@@ -82,6 +92,7 @@
   {
     "id": 11,
     "userId": 11,
+    "name": "Mia Thomas",
     "lastMessage": "Spotify wishes it looked like this.",
     "timestamp": "1 hour ago",
     "unreadCount": 2
@@ -90,8 +101,45 @@
   {
     "id": 12,
     "userId": 12,
+    "name": "Benjamin White",
     "lastMessage": "I'll send the assets later.",
     "timestamp": "Friday",
     "unreadCount": 0
+  },
+
+  {
+    "id": 13,
+    "userId": 13,
+    "name": "Charlotte Walker",
+    "lastMessage": "The new update looks incredible ✨",
+    "timestamp": "3:15 PM",
+    "unreadCount": 1
+  },
+
+  {
+    "id": 14,
+    "userId": 14,
+    "name": "Daniel Harris",
+    "lastMessage": "Did you finish the prototype?",
+    "timestamp": "Tuesday",
+    "unreadCount": 6
+  },
+
+  {
+    "id": 15,
+    "userId": 15,
+    "name": "Amelia Young",
+    "lastMessage": "I love the new animations so much!",
+    "timestamp": "7:45 AM",
+    "unreadCount": 0
+  },
+
+  {
+    "id": 16,
+    "userId": 16,
+    "name": "Michael King",
+    "lastMessage": "Let's test everything tonight.",
+    "timestamp": "20 mins ago",
+    "unreadCount": 3
   }
 ]
