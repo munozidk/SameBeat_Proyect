@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProfileUsername from '../../components/Profile/ProfileUsername';
 import ProfileHeaderInfo from '../../components/Profile/ProfileHeaderInfo';
@@ -7,21 +7,29 @@ import ProfileActions from '../../components/Profile/ProfileActions';
 import BackButton from '../../components/BackButton/BackButton';
 import StoriesSection from '../../components/Stories/StoriesSection';
 import StoryViewerScreen from '../Stories/StoryViewerScreen';
-import { userProfile } from '../../data/profile/userProfile.json';
-import { concerts } from '../../data/concerts/concerts.json';
+import type { UserProfile, Concert } from '../../types/types';
+import userProfileData from '../../data/profile/userProfile.json';
+import concertsData from '../../data/concerts/concerts.json';
 import styles from './ProfileScreen.module.css';
 
+// ✅ Tipado correcto para los datos JSON
+const userProfile: UserProfile = userProfileData as unknown as UserProfile;
+const concerts: Concert[] = concertsData as unknown as Concert[];
+
 const ProfileScreen: React.FC = () => {
-  const storiesData = concerts.map(c => ({
+  // ✅ storiesData con todas las propiedades necesarias
+  const storiesData = concerts.map((c: Concert) => ({
     id: c.id,
     title: c.artist,
     thumbnail: c.image,
     images: [c.image],
     subtitle: c.tour,
-    caption: c.tour
+    caption: c.tour,
+    description: c.description,
+    themeColor: c.themeColor
   }));
 
-  const [selectedStory, setSelectedStory] = useState<any>(null);
+  const [selectedStory, setSelectedStory] = useState<typeof storiesData[0] | null>(null);
 
   const handleStoryClick = (id: number) => {
     const story = storiesData.find(s => s.id === id);
@@ -31,7 +39,7 @@ const ProfileScreen: React.FC = () => {
   const closeViewer = () => setSelectedStory(null);
 
   return (
-    <motion.div 
+    <motion.div
       className={styles.screenContainer}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -40,38 +48,38 @@ const ProfileScreen: React.FC = () => {
       <BackButton />
       <div className={styles.profileCard}>
         <ProfileUsername username={userProfile.username} />
-        
+
         <div className={styles.contentScroll}>
-          <ProfileHeaderInfo 
+          <ProfileHeaderInfo
             name={userProfile.name}
             age={userProfile.age}
             followers={userProfile.followers}
             following={userProfile.following}
             concerts={userProfile.concerts}
           />
-          <ProfileBio 
+          <ProfileBio
             bio={userProfile.bio}
             city={userProfile.city}
             country={userProfile.country}
             favoriteArtist={userProfile.favoriteArtist}
             favoriteSong={userProfile.favoriteSong}
           />
-          <ProfileActions 
+          <ProfileActions
             onEdit={() => console.log('Edit Profile')}
             onMessages={() => console.log('Messages')}
           />
-          <StoriesSection 
-            stories={storiesData} 
-            onStoryClick={handleStoryClick} 
+          <StoriesSection
+            stories={storiesData}
+            onStoryClick={handleStoryClick}
           />
         </div>
       </div>
 
       <AnimatePresence>
-        {selectedStory !== null && (
-          <StoryViewerScreen 
+        {selectedStory && (
+          <StoryViewerScreen
             story={selectedStory}
-            onClose={closeViewer} 
+            onClose={closeViewer}
           />
         )}
       </AnimatePresence>

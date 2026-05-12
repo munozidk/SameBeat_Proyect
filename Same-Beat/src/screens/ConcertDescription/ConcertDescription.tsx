@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { concerts } from '../../data/concerts/concerts.json';
-
+import concerts from "../../data/concerts/concerts.json";
 // Components
 import Header from '../../components/Header/Header';
 import HeroImage from '../../components/HeroImage/HeroImage';
