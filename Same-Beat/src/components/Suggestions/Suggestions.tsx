@@ -1,11 +1,11 @@
 import "./Suggestions.css"
-import usersData from "../../data/users.json"
+import usersData from "../../data/users/users.json"
 import { Plus } from "lucide-react"
 import yoongi from "../../assets/yoongi.jpg"
 import hyujin from "../../assets/hyujin.jpg"
-import loliBahia from "../../assets/loliBahia.jpg"
-import harry from "../../assets/harry.jpg"
-import avatar3 from "../../assets/avatar 3.jpg"
+import loliBahia from '../../assets/loliBahia.jpg'
+import harry from '../../assets/harry.jpg'
+import avatar3 from '../../assets/avatar 2.jpg'
 
 // Este componente muestra sugerencias de usuarios
 const Suggestions = () => {
