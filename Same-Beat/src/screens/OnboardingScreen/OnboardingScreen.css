@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================
+   SVG GOO FILTER
+========================= */
+
+.onb-goo-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* =========================
+   GOOEY BACKGROUND
+   ⚠️ DO NOT TOUCH
+========================= */
+
+.onb-gooey-container {
+  position: fixed;
+  inset: -20%;
+  overflow: hidden;
+  filter: url(#goo);
+  opacity: 0.55;
+  z-index: -100;
+}
+
+.onb-blob {
+  position: absolute;
+  width: 850px;
+  height: 850px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.8;
+}
+
+.onb-blob1 {
+  background: #7E3BED;
+  top: -250px;
+  left: -250px;
+  animation: onbMove1 8s infinite alternate ease-in-out;
+}
+
+.onb-blob2 {
+  background: #462389;
+  bottom: -300px;
+  right: -250px;
+  animation: onbMove2 9s infinite alternate ease-in-out;
+}
+
+.onb-blob3 {
+  background: #2B1257;
+  top: 15%;
+  left: 30%;
+  animation: onbMove3 10s infinite alternate ease-in-out;
+}
+
+.onb-blob4 {
+  background: #C6FF34;
+  opacity: 0.08;
+  top: -150px;
+  right: 5%;
+  animation: onbMove4 12s infinite alternate ease-in-out;
+}
+
+.onb-blob5 {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  background: #120923;
+  bottom: -300px;
+  left: 25%;
+  filter: blur(70px);
+  animation: onbMove5 10s infinite alternate ease-in-out;
+}
+
+@keyframes onbMove1 {
+  to { transform: translate(300px, 250px) scale(1.2) rotate(180deg); }
+}
+@keyframes onbMove2 {
+  to { transform: translate(-250px, -200px) scale(1.15) rotate(-180deg); }
+}
+@keyframes onbMove3 {
+  to { transform: translate(220px, -120px) rotate(120deg); }
+}
+@keyframes onbMove4 {
+  to { transform: translate(-180px, 180px) rotate(-120deg); }
+}
+@keyframes onbMove5 {
+  to { transform: translate(-200px, -150px) scale(1.1); }
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.onb-container {
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 36px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* =========================
+   LOGO  ← SVG 1
+   (SameBeat-Name.svg)
+========================= */
+
+.onb-logo {
+  width: 480px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+/* =========================
+   CARDS SECTION
+   Cards pushed down so their
+   bottom overlaps mascot ~half
+========================= */
+
+.onb-cards {
+  width: 100%;
+  height: 560px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.onb-card {
+  position: absolute;
+  width: 295px;
+  height: 450px;
+  padding: 30px 24px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(126, 59, 237, 0.75),
+    rgba(18, 9, 35, 0.88)
+  );
+  border: 1px solid rgba(198, 255, 52, 0.7);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 0 18px rgba(198, 255, 52, 0.18),
+    0 0 30px rgba(126, 59, 237, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  top: 40px;
+  transition: top 0.35s ease, transform 0.35s ease,
+              opacity 0.35s ease, box-shadow 0.35s ease;
+}
+
+.onb-card:hover {
+  top: 10px;
+}
+
+/* ── Card positions ── */
+
+.card-1 {
+  transform: translateX(-375px) rotate(-6deg) scale(0.82);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.card-2 {
+  transform: translateX(-188px) rotate(-3deg) scale(0.92);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+.card-main {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 20;
+  box-shadow:
+    0 0 45px rgba(198, 255, 52, 0.22),
+    0 0 80px rgba(126, 59, 237, 0.22);
+}
+
+.card-4 {
+  transform: translateX(188px) rotate(3deg) scale(0.92);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+.card-5 {
+  transform: translateX(375px) rotate(6deg) scale(0.82);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+/* =========================
+   CARD ICON
+========================= */
+
+.onb-icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  margin-bottom: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+/* =========================
+   CARD TEXT
+========================= */
+
+.onb-card h2 {
+  color: white;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.onb-card h2 span {
+  color: #C6FF34;
+}
+
+.onb-card p {
+  color: #E4E4E4;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   MASCOT  ← SVG 2
+   (Mocki-Welcome.svg)
+   z-index 25 so it renders
+   in front of cards
+========================= */
+
+.onb-mascot {
+  width: 240px;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  display: block;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.onb-btn {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 42px;
+  border: none;
+  border-radius: 60px;
+  background: #7E3BED;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.35s ease;
+  z-index: 30;
+}
+
+.onb-btn:hover {
+  background: #C6FF34;
+  color: #120923;
+}
+
+/* =========================
+   RESPONSIVE — TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .onb-logo {
+    width: 280px;
+  }
+
+  .onb-cards {
+    height: 480px;
+  }
+
+  .onb-card {
+    width: 235px;
+    height: 380px;
+    padding: 22px 18px;
+  }
+
+  .onb-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-1 {
+    transform: translateX(-290px) rotate(-6deg) scale(0.82);
+  }
+
+  .card-2 {
+    transform: translateX(-145px) rotate(-3deg) scale(0.92);
+  }
+
+  .card-4 {
+    transform: translateX(145px) rotate(3deg) scale(0.92);
+  }
+
+  .card-5 {
+    transform: translateX(290px) rotate(6deg) scale(0.82);
+  }
+
+  .onb-mascot {
+    width: 170px;
+    bottom: 72px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px){
+
+  .onb-container{
+    padding: 30px 20px 50px;
+    overflow: hidden;
+  }
+
+  .onb-logo{
+    width: clamp(220px, 38vw, 340px);
+    margin-bottom: 24px;
+    z-index: 20;
+  }
+
+  .onb-cards{
+    width: 100%;
+    height: 460px;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .onb-card{
+    width: 260px;
+    height: 360px;
+
+    padding: 30px 24px;
+    border-radius: 30px;
+  }
+
+  .onb-card h2{
+    font-size: 2rem;
+    line-height: 1.05;
+  }
+
+  .onb-card p{
+    font-size: 0.95rem;
+  }
+
+  /* POSITIONS */
+
+  .card-main{
+    transform: scale(1);
+    z-index: 10;
+    opacity: 1;
+  }
+
+  .card-1{
+    transform:
+      translateX(-230px)
+      rotate(-9deg)
+      scale(0.8);
+
+    opacity: 0.2;
+  }
+
+  .card-2{
+    transform:
+      translateX(-140px)
+      rotate(-6deg)
+      scale(0.9);
+
+    opacity: 0.45;
+  }
+
+  .card-4{
+    transform:
+      translateX(140px)
+      rotate(6deg)
+      scale(0.9);
+
+    opacity: 0.45;
+  }
+
+  .card-5{
+    transform:
+      translateX(230px)
+      rotate(9deg)
+      scale(0.8);
+
+    opacity: 0.2;
+  }
+
+  /* MASCOT */
+
+  .onb-mascot{
+    width: clamp(180px, 28vw, 260px);
+
+    position: relative;
+    left: unset;
+    bottom: unset;
+    transform: none;
+
+    margin-top: -60px;
+    z-index: 30;
+  }
+
+  /* BUTTON */
+
+  .onb-btn{
+    position: relative;
+    left: unset;
+    bottom: unset;
+    transform: none;
+
+    margin-top: 10px;
+
+    z-index: 35;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px){
+
+  .onb-container{
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding:
+      20px
+      16px
+      24px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    overflow: hidden;
+  }
+
+  /* LOGO */
+
+  .onb-logo{
+
+    width: clamp(190px, 62vw, 280px);
+
+    margin: 0;
+
+    z-index: 20;
+  }
+
+  /* CARDS */
+
+  .onb-cards{
+
+    width: 100%;
+    height: 360px;
+
+    margin: 0;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .onb-card{
+
+    width: 210px;
+    height: 300px;
+
+    padding: 24px 18px;
+
+    border-radius: 28px;
+  }
+
+  .onb-card h2{
+
+    font-size: 1.7rem;
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+  }
+
+  .onb-card p{
+
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* ICON */
+
+  .onb-icon-circle{
+
+    width: 56px;
+    height: 56px;
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+  }
+
+  /* CARD POSITIONS */
+
+  .card-main{
+
+    transform: scale(1);
+
+    opacity: 1;
+    z-index: 20;
+  }
+
+  .card-1{
+
+    transform:
+      translateX(-190px)
+      rotate(-10deg)
+      scale(0.75);
+
+    opacity: 0.12;
+  }
+
+  .card-2{
+
+    transform:
+      translateX(-110px)
+      rotate(-6deg)
+      scale(0.86);
+
+    opacity: 0.35;
+  }
+
+  .card-4{
+
+    transform:
+      translateX(110px)
+      rotate(6deg)
+      scale(0.86);
+
+    opacity: 0.35;
+  }
+
+  .card-5{
+
+    transform:
+      translateX(190px)
+      rotate(10deg)
+      scale(0.75);
+
+    opacity: 0.12;
+  }
+
+  /* MASCOT */
+
+  .onb-mascot{
+
+    width: clamp(170px, 48vw, 230px);
+
+    position: relative;
+
+    left: unset;
+    bottom: unset;
+
+    transform: none;
+
+    margin: -28px 0 0;
+
+    z-index: 30;
+  }
+
+  /* BUTTON */
+
+  .onb-btn{
+
+    position: relative;
+
+    left: unset;
+    bottom: unset;
+
+    transform: none;
+
+    margin-top: 4px;
+
+    padding: 14px 34px;
+
+    font-size: 0.95rem;
+
+    z-index: 40;
+  }
+
+}
+
+/* =========================================
+   EXTRA SMALL
+========================================= */
+
+@media (max-width: 390px){
+
+  .onb-container{
+
+    padding:
+      18px
+      14px
+      20px;
+
+    gap: 6px;
+  }
+
+  .onb-logo{
+
+    width: 185px;
+  }
+
+  .onb-cards{
+
+    height: 330px;
+  }
+
+  .onb-card{
+
+    width: 190px;
+    height: 280px;
+  }
+
+  .onb-card h2{
+
+    font-size: 1.5rem;
+  }
+
+  .onb-card p{
+
+    font-size: 0.82rem;
+  }
+
+  .onb-mascot{
+
+    width: 180px;
+
+    margin-top: -16px;
+  }
+
+  .onb-btn{
+
+    margin-top: 0;
+  }
+
+}

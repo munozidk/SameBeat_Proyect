@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.wrapper{
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+  background: #120923;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 20px;
+
+  font-family: "Poppins", sans-serif;
+
+  box-sizing: border-box;
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── HIDE SVG ── */
+.svgHide {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ── GOOEY BACKGROUND ── */
+.gooeyContainer {
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  overflow: hidden;
+  background: #120923;
+  filter: url(#goo);
+  isolation: isolate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── BLOBS ── */
+.blob {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  filter: blur(55px);
+  opacity: 0.82;
+  will-change: transform;
+  border-radius: 63% 37% 0% 46% / 55% 48% 52% 45%;
+}
+
+.blob1 { background: #7E3BED; top: -300px; left: -300px; animation: move1 3s linear infinite alternate; }
+.blob2 { background: #a6ff00; bottom: -350px; right: -200px; animation: move2 3.5s linear infinite alternate; }
+.blob3 { background: #28054a; top: 10%; left: 25%; animation: move3 4s linear infinite alternate; }
+.blob4 { background: #EBDFD3; top: -200px; right: 10%; opacity: 0.08; animation: move4 4.5s linear infinite alternate; }
+.blob5 {
+  position: absolute;
+  width: 850px;
+  height: 850px;
+  background: #2B1257;
+  top: 35%;
+  left: 40%;
+  filter: blur(60px);
+  opacity: 0.75;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: move5 3.2s linear infinite alternate;
+}
+
+/* ── CONTAINER ── */
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.88) translateY(-10px);
+  transform-origin: center;
+}
+
+/* ── TITLE ── */
+.title {
+  color: white !important;
+  font-size: clamp(2.8rem, 4vw, 4.8rem) !important;
+  text-align: center;
+  line-height: 1.05;
+  font-weight: 700 !important;
+  font-family: 'Poppins', sans-serif !important;
+  margin: 0;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.75) !important;
+  margin-top: 14px;
+  font-size: 1rem !important;
+  text-align: center;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ── SEARCH ── */
+.searchBox {
+  width: 100%;
+  max-width: 820px;
+  height: 66px;
+  margin-top: 32px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 28px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.06), 0 10px 30px rgba(0,0,0,0.20);
+  transition: 0.35s ease;
+  box-sizing: border-box;
+}
+
+.searchBox:hover {
+  transform: translateY(-2px);
+  border: 1px solid rgba(217,255,0,0.22);
+  box-shadow: 0 0 30px rgba(217,255,0,0.12), 0 12px 35px rgba(0,0,0,0.24);
+}
+
+.searchBox:focus-within {
+  border: 1px solid rgba(217,255,0,0.35);
+  box-shadow: 0 0 40px rgba(217,255,0,0.16), 0 12px 40px rgba(0,0,0,0.28);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.searchIcon {
+  color: #d9ff00;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.searchBox:focus-within .searchIcon {
+  color: #91ff00;
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.searchInput::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── LOCATION ── */
+.locationRow {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.locationText {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.locationIcon {
+  color: #b46cff;
+}
+
+/* ── SWITCH ── */
+.switch {
+  position: relative;
+  width: 66px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.switchInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.14);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  top: 4px;
+  left: 5px;
+  transition: 0.3s ease;
+}
+
+.switchInput:checked + .slider {
+  background: #d9ff00;
+}
+
+.switchInput:checked + .slider::before {
+  transform: translateX(31px);
+}
+
+/* ── GRID ── */
+.genresGrid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  justify-content: center;
+  gap: 18px;
+}
+
+/* ── CARDS ── */
+.card {
+  width: 100%;
+  min-width:0;
+  height: 125px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.06), 0 10px 30px rgba(0,0,0,0.18);
+  transition: 0.3s ease;
+  box-sizing: border-box;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 50%);
+  pointer-events: none;
+}
+
+.cardIcon {
+  font-size: 1.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cardLabel {
+  color: white !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  font-family: 'Poppins', sans-serif !important;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: linear-gradient(145deg, rgba(217,255,0,0.10), rgba(168,85,255,0.08));
+  box-shadow: 0 0 30px rgba(217,255,0,0.08), 0 18px 40px rgba(0,0,0,0.24);
+}
+
+/* color variants */
+.yellow .cardIcon { color: #d9ff00; }
+.purple .cardIcon { color: #b46cff; }
+
+/* selected */
+.selected.yellow {
+  border-color: #d9ff00;
+  box-shadow: 0 0 24px rgba(217,255,0,0.30), 0 18px 40px rgba(0,0,0,0.24);
+  background: linear-gradient(145deg, rgba(217,255,0,0.15), rgba(217,255,0,0.05));
+}
+
+.selected.purple {
+  border-color: #b46cff;
+  box-shadow: 0 0 24px rgba(180,108,255,0.35), 0 18px 40px rgba(0,0,0,0.24);
+  background: linear-gradient(145deg, rgba(180,108,255,0.18), rgba(180,108,255,0.06));
+}
+
+/* ── TICKET BUTTON ── */
+.ticketBtn {
+  margin-top: 34px;
+  width: 300px;
+  height: 84px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.08), 0 14px 40px rgba(0,0,0,0.24);
+  transition: 0.35s ease;
+  overflow: hidden;
+  clip-path: path("M 0 24 Q 0 0 24 0 L 276 0 Q 300 0 300 24 L 300 28 Q 276 42 300 56 L 300 60 Q 300 84 276 84 L 24 84 Q 0 84 0 60 L 0 56 Q 24 42 0 28 Z");
+  border-radius: 24px;
+}
+
+.ticketBtn::before,
+.ticketBtn::after {
+  content: "";
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #140326;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.ticketBtn::before { left: -28px; }
+.ticketBtn::after  { right: -28px; }
+
+.ticketBtn span {
+  position: relative;
+  z-index: 3;
+}
+
+.ticketBtn:hover {
+  background: rgba(201,255,52,0.10);
+  border: 1px solid rgba(217,255,0,0.22);
+  color: #eaff9c;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 35px rgba(217,255,0,0.14), 0 18px 50px rgba(0,0,0,0.30);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes move1 {
+  0%   { transform: translate(0,0) rotate(0deg) scale(1); }
+  100% { transform: translate(420px,300px) rotate(220deg) scale(1.35); }
+}
+@keyframes move2 {
+  0%   { transform: translate(0,0) rotate(0deg) scale(1); }
+  100% { transform: translate(-380px,-280px) rotate(-220deg) scale(1.3); }
+}
+@keyframes move3 {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  100% { transform: translate(320px,-260px) rotate(180deg); }
+}
+@keyframes move4 {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  100% { transform: translate(-300px,300px) rotate(-180deg); }
+}
+@keyframes move5 {
+  0%   { transform: translate(0,0) rotate(0deg) scale(1); }
+  100% { transform: translate(-260px,-220px) rotate(160deg) scale(1.25); }
+}
+
+
+/* ── CLEAR BUTTON (search) ── */
+.clearBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 1rem;
+  padding: 4px 6px;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearBtn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── NO RESULTS ── */
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-size: 1rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  padding: 40px 0;
+}
+
+/* ── TICKET BUTTON: ICON ── */
+.ticketIcon {
+  position: relative;
+  z-index: 3;
+  font-size: 1.2rem;
+  transition: color 0.35s ease;
+}
+
+/* ── TICKET BUTTON: ACTIVE (genres selected) ── */
+.ticketBtnActive {
+  background: linear-gradient(135deg, rgba(217,255,0,0.18), rgba(168,85,255,0.18)) !important;
+  border: 1px solid rgba(217,255,0,0.5) !important;
+  color: #eaff9c !important;
+  box-shadow:
+    0 0 30px rgba(217,255,0,0.20),
+    0 0 60px rgba(168,85,255,0.15),
+    0 14px 40px rgba(0,0,0,0.30) !important;
+}
+
+.ticketBtnActive .ticketIcon {
+  color: #d9ff00;
+}
+
+/* ── TICKET BUTTON: HOVER (mejorado) ── */
+.ticketBtn:hover {
+  background: rgba(201,255,52,0.14) !important;
+  border: 1px solid rgba(217,255,0,0.45) !important;
+  color: #eaff9c !important;
+  transform: translateY(-4px) scale(1.03) !important;
+  box-shadow:
+    0 0 50px rgba(217,255,0,0.25),
+    0 0 80px rgba(217,255,0,0.10),
+    0 20px 55px rgba(0,0,0,0.35) !important;
+}
+
+.ticketBtn:hover .ticketIcon {
+  color: #d9ff00;
+}
+
+/* ── TICKET BUTTON: PRESS ── */
+.ticketBtn:active {
+  transform: scale(0.97) !important;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px){
+
+  .container{
+    width: 100%;
+    padding: 40px 24px;
+  }
+
+  .title{
+    font-size: 3.2rem;
+    text-align: center;
+  }
+
+  .subtitle{
+    text-align: center;
+  }
+
+  .searchBox{
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .genresGrid{
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(160px, 1fr));
+
+    gap: 18px;
+  }
+
+  .genreCard{
+    width: 100%;
+    min-width: unset;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px){
+
+  .wrapper{
+    min-height: 100vh;
+  }
+
+  .container{
+
+    width: 100%;
+
+    padding:
+      36px
+      18px
+      50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: none !important;
+  }
+
+  .genresGrid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .card{
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 600px){
+
+  html,
+  body,
+  #root{
+    height: auto !important;
+    min-height: 100%;
+  }
+
+  body{
+    overflow-y: auto !important;
+  }
+
+  .wrapper{
+    height: auto !important;
+    min-height: 100vh;
+
+    overflow: visible !important;
+  }
+
+  .container{
+    transform: none !important;
+  }
+
+}
